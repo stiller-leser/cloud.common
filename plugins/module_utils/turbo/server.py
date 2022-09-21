@@ -372,7 +372,8 @@ class AnsibleVMwareTurboMode:
         self.loop.run_forever()
 
     def stop(self):
-        os.unlink(self.socket_path)
+        if os.path.exists(self.socket_path):
+            os.unlink(self.socket_path)
         self.loop.stop()
 
 
