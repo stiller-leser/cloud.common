@@ -53,7 +53,6 @@ import ansible.module_utils.basic
 
 please_include_me = "bar"
 
-
 def fork_process():
     """
     This function performs the double fork process to detach from the

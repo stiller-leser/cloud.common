@@ -58,7 +58,7 @@ class AnsibleTurboSocket:
                     running = self.start_server()
                 if attempt == 0:
                     raise
-            time.sleep(0.01)
+            time.sleep(0.05)
 
     def start_server(self):
         env = os.environ
