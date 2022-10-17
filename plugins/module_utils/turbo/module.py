@@ -30,6 +30,7 @@ import os
 import os.path
 import sys
 import tempfile
+import time
 
 import ansible.module_utils.basic
 from .exceptions import (
@@ -123,7 +124,7 @@ class AnsibleTurboModule(ansible.module_utils.basic.AnsibleModule):
             abs_remote_tmp = tempfile.gettempdir()
         else:
             abs_remote_tmp = os.path.expanduser(os.path.expandvars(self._remote_tmp))
-        return os.path.join(abs_remote_tmp, f"turbo_mode.{self.collection_name}.socket")
+        return os.path.join(abs_remote_tmp, f"turbo_mode.{self.collection_name}.{str(time.time())}.socket")
 
     def init_args(self):
         argument_specs = expand_argument_specs_aliases(self.argument_spec)
